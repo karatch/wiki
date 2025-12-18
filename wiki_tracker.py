@@ -1,9 +1,12 @@
+import os
+
 import requests
 from bs4 import BeautifulSoup
-import time, json, re, smtplib
+import time, json, re, smtplib, os
 from email.mime.text import MIMEText
 from email.header import Header
 import unicodedata
+from dotenv import load_dotenv
 
 
 WIKI_URL = "https://en.wikipedia.org/wiki/Deaths_in_August_2023"
@@ -12,12 +15,14 @@ WIKI_URL = "https://en.wikipedia.org/wiki/Deaths_in_August_2023"
 # интервал проверки (в секундах)
 CHECK_INTERVAL_SECONDS = 60 * 5
 
+load_dotenv()
+
 # настройки электронной почты
-SMTP_SERVER = 'smtp.yandex.ru'
+SMTP_SERVER = os.getenv('SMTP_SERVER')
 SMTP_PORT = 587 # или 465
-SMTP_USERNAME = "your_sender_email@yandex.ru"
-SMTP_PASSWORD = "your_email_password"
-RECEIVER_EMAIL = "recipient_email@yandex.ru"
+SMTP_USERNAME = os.getenv('SMTP_USERNAME')
+SMTP_PASSWORD = os.getenv('SMTP_PASSWORD')
+RECEIVER_EMAIL = os.getenv('RECEIVER_EMAIL')
 
 # файл json для хранения обработанных данных
 STATE_FILE = WIKI_URL.split('/')[-1].lower() + '.json'
