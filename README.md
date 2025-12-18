@@ -5,12 +5,16 @@
 Если страницы на русском языке нет, отправляет ту ссылку, которая указана в исходной странице.
 
 Для работы скрипта нужно создать в рабочей директории скрипта файл .env и 
-указать в нем настройки почты
+указать в нем настройки почты:
 
-SMTP_SERVER = 'smtp.yandex.ru'
-SMTP_USERNAME = "your_sender_email@yandex.ru"
-SMTP_PASSWORD = "your password"
-RECEIVER_EMAIL = "recipient_email@yandex.ru"
+SMTP_SERVER = smtp.yandex.ru
+
+SMTP_USERNAME = your_sender_email@yandex.ru
+
+SMTP_PASSWORD = your password
+
+RECEIVER_EMAIL = recipient_email@yandex.ru
+
 
 Для запуска скрипта используйте команду:
 
